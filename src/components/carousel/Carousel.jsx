@@ -65,7 +65,7 @@ export default function Carousel({ data, loading, endpoint, title }) {
           <div className="textBlock">
             <span className="title">{ele.title || ele.name}</span>
             <span className="date">
-              {dayjs(ele.release_date).format("MMM DD, YYYY")}
+              {dayjs(ele.release_date || ele.first_air_date).format("MMM DD, YYYY")}
             </span>
           </div>
         </div>
