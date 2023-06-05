@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { HiOutlineSearch } from "react-icons/hi";
 import { SlMenu } from "react-icons/sl";
 import { VscChromeClose } from "react-icons/vsc";
+import { BiSearch } from "react-icons/bi";
 import { useNavigate, useLocation } from "react-router-dom";
 
 import "./header.scss";
@@ -74,7 +75,7 @@ const Header = () => {
   return (
     <header className={`header ${mobileMenu ? "mobile_view" : ""}  ${show}`}>
       <ContentWrapper>
-        <div onClick={() => navigate("/")}  className="logo">
+        <div onClick={() => navigate("/")} className="logo">
           <img src={logo} alt="logo" />
         </div>
         <ul className="menu_items">
@@ -112,6 +113,16 @@ const Header = () => {
                 type="text"
                 placeholder="Search for a movie or by tv show..."
                 onKeyUp={handleSearch}
+              />
+              <BiSearch
+                onClick={() => {
+                  if (!query) return;
+                  navigate(`/search/${query}`);
+                  setTimeout(() => {
+                    setShowSearch(false);
+                  }, 1000);
+                }}
+                className="btn_search"
               />
               <VscChromeClose onClick={() => setShowSearch(false)} />
             </div>

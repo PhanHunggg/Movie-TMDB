@@ -46,7 +46,14 @@ export default function Hero() {
               type="text"
               placeholder="Search for a movie or by tv show..."
             />
-            <button>Search</button>
+            <button
+              onClick={() => {
+                if (!query) return;
+                navigate(`/search/${query}`);
+              }}
+            >
+              Search
+            </button>
           </div>
         </div>
       </ContentWrapper>
