@@ -15,8 +15,6 @@ const MovieCard = ({ data, fromSearch, mediaType }) => {
     const posterUrl = data.poster_path
         ? url.poster + data.poster_path
         : PosterFallback;
-
-        console.log(posterUrl);
     return (
         <div
             className="movieCard"
